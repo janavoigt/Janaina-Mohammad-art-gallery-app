@@ -20,6 +20,7 @@ test("render a image and artist for the random function", () => {
       artist={testArtPieceDetails.artist}
       year={testArtPieceDetails.year}
       genre={testArtPieceDetails.genre}
+      colors={testArtPieceDetails.colors}
     />
   );
 
@@ -27,10 +28,15 @@ test("render a image and artist for the random function", () => {
     image: "https://example-apis.vercel.app/assets/art/blue-and-red.jpg",
   });
 
-  const title = screen.getByRole("heading");
+  const title = screen.getByText(testArtPieceDetails.name);
   const year = screen.getByText(testArtPieceDetails.year);
   const genre = screen.getByText(testArtPieceDetails.genre);
   const artist = screen.getByText(testArtPieceDetails.artist);
+
+  testArtPieceDetails.colors.forEach((hex) => {
+    const color = screen.getByRole("listitem", { name: hex });
+    expect(color).toBeInTheDocument();
+  });
 
   expect(image).toBeInTheDocument();
   expect(title).toBeInTheDocument();

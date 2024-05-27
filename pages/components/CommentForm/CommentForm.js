@@ -9,14 +9,13 @@ export default function CommentForm({ onSubmitComment }) {
     onSubmitComment(data);
 
     event.target.reset();
-    event.target.elements.name.focus();
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="comments">Comment</label>
       <textarea
-        name="textarea"
+        name="comment"
         rows="5"
         cols="30"
         placeholder="Left your Comment"

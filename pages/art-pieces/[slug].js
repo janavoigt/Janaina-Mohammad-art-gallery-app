@@ -14,7 +14,7 @@ export default function ArtPieceDetailsPage() {
 
   const foundPiece = artPieces.find((piece) => piece.slug === slug);
 
-  const { imageSource, name, artist, year, genre } = foundPiece;
+  const { imageSource, name, artist, year, genre, colors } = foundPiece;
 
   return (
     <ArtPieceDetails
@@ -23,6 +23,8 @@ export default function ArtPieceDetailsPage() {
       artist={artist}
       year={year}
       genre={genre}
+      colors={colors}
+      onBack={() => router.back()}
     />
   );
 }
