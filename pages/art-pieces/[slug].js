@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useArtPiecesStore } from "@/stores/pieces";
+import { useArtPiecesStore } from "@/stores/userPiecesStores";
 import Image from "next/image";
 import ArtPieceDetails from "../components/ArtPieceDetails/ArtPieceDetails";
 
@@ -14,12 +14,12 @@ export default function ArtPieceDetailsPage() {
 
   const foundPiece = artPieces.find((piece) => piece.slug === slug);
 
-  const { imagesource, name, artist, year, genre } = foundPiece;
+  const { imageSource, name, artist, year, genre } = foundPiece;
 
   return (
     <ArtPieceDetails
       title={name}
-      image={imagesource}
+      image={imageSource}
       artist={artist}
       year={year}
       genre={genre}

@@ -1,6 +1,6 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
-import { useArtPiecesStore } from "@/stores/pieces";
+import { useArtPiecesStore } from "@/stores/userPiecesStores";
 import { useEffect } from "react";
 import Layout from "./components/Layout/Layout";
 

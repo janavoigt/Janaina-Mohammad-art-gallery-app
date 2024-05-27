@@ -1,10 +1,7 @@
 import ArtPiecePreview from "../ArtPiecePreview/ArtPiecePreview";
-import { useArtPiecesStore } from "@/stores/pieces";
+import { useArtPiecesStore } from "@/stores/userPiecesStores";
 
-export default function ArtPieces() {
-  const pieces = useArtPiecesStore((state) => state.artPieces);
-  if (pieces === undefined || pieces.length === 0) return <h1>{"Loading"}</h1>;
-
+export default function ArtPieces({ pieces }) {
   return (
     <div>
       {pieces?.map((piece) => (
@@ -13,6 +10,7 @@ export default function ArtPieces() {
             image={piece.imageSource}
             title={piece.name}
             artist={piece.artist}
+            slug={piece.slug}
           />
         </li>
       ))}
