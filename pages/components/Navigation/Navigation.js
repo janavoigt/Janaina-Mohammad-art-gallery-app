@@ -4,10 +4,10 @@ export default function Navigation() {
   return (
     <>
       <p>
-        <Link href="/pages/index.js">Spotlight</Link>
+        <Link href="/">Spotlight</Link>
       </p>
       <p>
-        <Link href="/pages/art-pieces/index.js">Pieces</Link>
+        <Link href="/art-pieces">Pieces</Link>
       </p>
     </>
   );

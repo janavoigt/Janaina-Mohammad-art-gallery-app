@@ -2,6 +2,7 @@ import GlobalStyle from "../styles";
 import useSWR from "swr";
 import { useArtPiecesStore } from "@/stores/pieces";
 import { useEffect } from "react";
+import Layout from "./components/Layout/Layout";
 
 const fetcher = async (...args) => {
   const response = await fetch(...args);
@@ -29,6 +30,7 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <Component {...pageProps} />
+      <Layout />
     </>
   );
 }
