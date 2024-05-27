@@ -21,7 +21,11 @@ export default function SpotlightPage() {
 
   return (
     <>
-      <Spotlight image={artPiece.imageSource} artist={artPiece.artist} />
+      <Spotlight
+        image={artPiece.imageSource}
+        artist={artPiece.artist}
+        slug={artPiece.slug}
+      />
     </>
   );
 }

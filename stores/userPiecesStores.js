@@ -7,7 +7,7 @@ export const useArtPiecesStore = create((set, get) => ({
   artPiecesInfo: [],
   setArtInfo: (pieces) => set({ artPiecesInfo: pieces }),
 
-  setFavorite: (slug) =>
+  onToggleFavorite: (slug) =>
     set((state) => {
       const favoritePiece = state.artPiecesInfo.find(
         (piece) => piece.slug === slug
