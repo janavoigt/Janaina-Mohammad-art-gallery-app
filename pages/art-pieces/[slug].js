@@ -24,6 +24,7 @@ export default function ArtPieceDetailsPage() {
       year={year}
       genre={genre}
       colors={colors}
+      onBack={() => router.back()}
     />
   );
 }

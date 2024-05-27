@@ -19,6 +19,7 @@ export default function ArtPieceDetails({
   genre,
   slug,
   colors,
+  onBack,
 }) {
   const comments = useArtPiecesStore((state) => state.getComments(slug));
   const addComment = useArtPiecesStore((state) => state.addComment);
@@ -38,7 +39,9 @@ export default function ArtPieceDetails({
           <Color key={index} color={color} />
         ))}
       </article>
-      <button type="button">Back to the List</button>
+      <button type="button" onClick={onBack}>
+        Back to the List
+      </button>
       <Comments comments={comments} />
       <CommentForm
         onSubmitComment={(data) => addComment(slug, data.comment, Date.now())}
