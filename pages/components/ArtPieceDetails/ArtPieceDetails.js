@@ -3,6 +3,13 @@ import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import CommentForm from "../CommentForm/CommentForm";
 import { useArtPiecesStore } from "@/stores/userPiecesStores";
 import Comments from "../Comments/Comments";
+import styled from "styled-components";
+
+const Color = styled.li`
+  width: 2rem;
+  height: 2rem;
+  background-color: ${(props) => props.color};
+`;
 
 export default function ArtPieceDetails({
   image,
@@ -11,6 +18,7 @@ export default function ArtPieceDetails({
   year,
   genre,
   slug,
+  colors,
 }) {
   const comments = useArtPiecesStore((state) => state.getComments(slug));
   const addComment = useArtPiecesStore((state) => state.addComment);
@@ -26,6 +34,9 @@ export default function ArtPieceDetails({
           <li>{year}</li>
           <li>{genre}</li>
         </ul>
+        {colors?.map((color, index) => (
+          <Color key={index} color={color} />
+        ))}
       </article>
       <button type="button">Back to the List</button>
       <Comments comments={comments} />
