@@ -1,5 +1,8 @@
 import Image from "next/image";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
+import CommentForm from "../CommentForm/CommentForm";
+import { useArtPiecesStore } from "@/stores/userPiecesStores";
+import Comments from "../Comments/Comments";
 
 export default function ArtPieceDetails({
   image,
@@ -9,6 +12,9 @@ export default function ArtPieceDetails({
   genre,
   slug,
 }) {
+  const comments = useArtPiecesStore((state) => state.getComments(slug));
+  const addComment = useArtPiecesStore((state) => state.addComment);
+
   return (
     <>
       <article>
@@ -22,6 +28,10 @@ export default function ArtPieceDetails({
         </ul>
       </article>
       <button type="button">Back to the List</button>
+      <Comments comments={comments} />
+      <CommentForm
+        onSubmitComment={(data) => addComment(slug, data.comment, Date.now())}
+      />
     </>
   );
 }
