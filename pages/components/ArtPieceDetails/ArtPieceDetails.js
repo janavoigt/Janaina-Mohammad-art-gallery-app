@@ -7,8 +7,8 @@ export default function ArtPieceDetails({ image, title, artist, year, genre }) {
         <h2>{title}</h2>
         <Image src={image} alt={title} width={300} height={300} />
         <ul>
-          <li>Artist: {artist}</li>
-          <li>Year: {year}</li>
+          <li>{artist}</li>
+          <li>{year}</li>
           <li>{genre}</li>
         </ul>
       </article>
