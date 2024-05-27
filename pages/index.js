@@ -1,20 +1,27 @@
 import useSWR from "swr";
-import ArtPieces from "./components/ArtPieces";
+import ArtPieces from "./components/ArtPieces/ArtPieces";
+import Spotlight from "./components/Spotlight/Spotlight";
+import { useArtPiecesStore } from "@/stores/pieces";
 
-const fetcher = async (...args) => {
-  const response = await fetch(...args);
-  if (!response.ok) {
-    throw new Error("failed");
+export default function SpotlightPage() {
+  function getRandomArtPieces(artPieces) {
+    const minCeiled = Math.ceil(0);
+    const maxFloored = Math.floor(artPieces.length);
+    const randomNumber = Math.floor(
+      Math.random() * (maxFloored - minCeiled) + minCeiled
+    );
+
+    return artPieces[randomNumber];
   }
-  return await response.json();
-};
+  const artPieces = useArtPiecesStore((state) => state.artPieces);
+  if (artPieces === undefined || artPieces.length === 0)
+    return <h1>{"Loading"}</h1>;
 
-export default function HomePage() {
-  const { data } = useSWR(`https://example-apis.vercel.app/api/art`, fetcher);
+  const artPiece = getRandomArtPieces(artPieces);
 
   return (
     <>
-      <ArtPieces pieces={data} />
+      <Spotlight image={artPiece.imageSource} artist={artPiece.artist} />
     </>
   );
 }
