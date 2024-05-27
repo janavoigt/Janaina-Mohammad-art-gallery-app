@@ -1,5 +1,5 @@
 import ArtPiecePreview from "../ArtPiecePreview/ArtPiecePreview";
-import { useArtPiecesStore } from "@/stores/pieces";
+import { useArtPiecesStore } from "@/stores/userPiecesStores";
 
 export default function ArtPieces({ pieces }) {
   return (

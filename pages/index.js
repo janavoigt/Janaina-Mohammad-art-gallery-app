@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import ArtPieces from "./components/ArtPieces/ArtPieces";
 import Spotlight from "./components/Spotlight/Spotlight";
-import { useArtPiecesStore } from "@/stores/pieces";
+import { useArtPiecesStore } from "@/stores/userPiecesStores";
 
 export default function SpotlightPage() {
   function getRandomArtPieces(artPieces) {
