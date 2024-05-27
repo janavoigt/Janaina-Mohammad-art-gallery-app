@@ -36,7 +36,7 @@ export default function ArtPieceDetails({
           <li>{genre}</li>
         </ul>
         {colors?.map((color, index) => (
-          <Color key={index} color={color} />
+          <Color key={index} color={color} aria-label={color} />
         ))}
       </article>
       <button type="button" onClick={onBack}>
