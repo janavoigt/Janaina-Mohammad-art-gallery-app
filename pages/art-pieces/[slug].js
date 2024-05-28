@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useArtPiecesStore } from "@/stores/userPiecesStores";
 import Image from "next/image";
-import ArtPieceDetails from "../components/ArtPieceDetails/ArtPieceDetails";
+import ArtPieceDetails from "../../components/ArtPieceDetails/ArtPieceDetails";
 
 export default function ArtPieceDetailsPage() {
   const router = useRouter();
