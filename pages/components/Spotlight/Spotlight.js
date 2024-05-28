@@ -16,6 +16,17 @@ const Container = styled.div`
 const StyledImage = styled(Image)`
   object-fit: cover;
 `;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  text-align: center;
+  position: center;
+  padding: 5px;
+  color: ${({ $isActive }) => ($isActive ? "var(--primary-color)" : "black")};
+  font-weight: bold;
+  &:hover {
+    border-bottom: 2px solid black;
+  }
+`;
 
 export default function Spotlight({ image, artist, slug }) {
   return (
@@ -23,10 +34,16 @@ export default function Spotlight({ image, artist, slug }) {
       <Container>
         <ImageContainer>
           <FavoriteButton slug={slug} />
-          <StyledImage src={image} alt="" width={300} height={300} />
+          <StyledImage
+            src={image}
+            alt=""
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            width={400}
+            height={400}
+          />
         </ImageContainer>
         <h3>{artist}</h3>
-        <Link href={`art-pieces/${slug}`}>Info</Link>
+        <StyledLink href={`art-pieces/${slug}`}>Details</StyledLink>
       </Container>
     </>
   );

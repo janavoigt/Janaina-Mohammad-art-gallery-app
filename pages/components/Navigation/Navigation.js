@@ -7,7 +7,7 @@ const StyledLink = styled(Link)`
   color: ${({ $isActive }) => ($isActive ? "var(--primary-color)" : "black")};
   font-weight: bold;
   &:hover {
-    border-bottom: 3px solid black;
+    border-top: 3px solid black;
   }
 `;
 
@@ -16,11 +16,20 @@ const List = styled.ul`
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 0.8rem;
-  height: 100%;
-  margin: 0;
   align-items: center;
+  gap: 0.8rem;
+  margin-top: 20px;
 `;
+
+// const NavContainer = styled.nav`
+//   bottom: 0;
+//   display: flex;
+//   text-align: center;
+//   align-items: center;
+//   border: solid 1px black;
+//   border-radius: 5px;
+//   background-color: lightgray;
+// `;
 
 export default function Navigation() {
   return (
