@@ -12,13 +12,14 @@ export default function CommentForm({ onSubmitComment }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="comments">Comment</label>
+    <form onSubmit={handleSubmit} role="form">
+      <label htmlFor="comment">Message:</label>
       <textarea
+        id="comment"
         name="comment"
         rows="5"
         cols="30"
-        placeholder="Left your Comment"
+        placeholder="Comment here"
       ></textarea>
 
       <div>
